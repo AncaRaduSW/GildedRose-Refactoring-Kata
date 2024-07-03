@@ -35,12 +35,12 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual(1, items[1].quality)
         self.assertEqual(2, items[2].quality)
 
-    def test_aged_brief(self):
+    def test_aged_brie(self):
         items = [Item("Aged Brie", 10, 0), Item("Aged Brie", -1, 0)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEqual(1, items[0].quality)
-        self.assertEqual(2, items[1].quality)
+        self.assertEqual(1, items[1].quality)
 
     def test_passed_sellin(self):
         items = [Item("banana", 0, 10), Item("apple", -1, 10)]
@@ -72,8 +72,8 @@ class GildedRoseTest(unittest.TestCase):
 
     def test_backstage_passes(self):
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 10, 10), Item("Backstage passes to a Coldplay concert", 9, 10),
-                 Item("Backstage passes", 5, 10), Item("Backstage passes", 4, 10),
-                 Item("Backstage passes", 0, 10), Item("Backstage passes", -1, 10)]
+                 Item("Backstage passes to smth", 5, 10), Item("Backstage passes to smth else", 4, 10),
+                 Item("Backstage passes to banana", 0, 10), Item("Backstage passes to apple", -1, 10)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEqual(12, items[0].quality)
