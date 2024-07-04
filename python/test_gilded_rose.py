@@ -19,7 +19,8 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual("bark", items[1].name)
         self.assertEqual("roar", items[2].name)
 
-    def test_day_passes(self):  # (sellin decreases)
+    def test_day_passes(self):
+        """ sellin should decrease """
         items = [Item("meow", 1, 10), Item("bark", 2, 10), Item("roar", 3, 10)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
@@ -66,7 +67,7 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item("Sulfuras, Hand of Ragnaros", -1, 80), Item("Sulfuras, Hand of Ragnaros", 0, 80), Item("Sulfuras, Hand of Ragnaros", 1, 80)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        # self.assertEqual(80, items[0].quality)
+        self.assertEqual(80, items[0].quality)
         self.assertEqual(80, items[1].quality)
         self.assertEqual(80, items[2].quality)
 
@@ -87,7 +88,7 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item("Conjured Cake", -1, 10), Item("Conjured Cookie", 1, 10)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEqual(8, items[0].quality)
+        self.assertEqual(6, items[0].quality)
         self.assertEqual(8, items[1].quality)
 
 if __name__ == '__main__':
